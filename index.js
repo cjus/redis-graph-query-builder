@@ -35,12 +35,12 @@ class QueryBuilder {
   }
 
   /**
-  * @name toProps
+  * @name toValueProps
   * @summary Convert an object of properties to a property query string.
   * @param {object} obj - object which will be converted to string of key/values
-  * @return {string} string of neo4j cypher compatible key / values
+  * @return {string} string of cypher compatible key / values
   */
-  toProps(obj) {
+  toValueProps(obj) {
     let ret = [];
     let objKeys = Object.keys(obj);
     objKeys.forEach((k) => {
@@ -62,15 +62,14 @@ class QueryBuilder {
   /**
     * @name toNamedProps
     * @summary Converts a named object to a cypher compatible key / value pair.
-    * @param {string} name - name of object
     * @param {object} obj - object which will be converted to string of key/values
-    * @return {string} string of neo4j cypher compatible key / values
+    * @return {string} string of cypher compatible key / values
     */
-  toNamedProps(name, obj) {
+  toNamedProps(obj) {
     let ret = [];
     let objKeys = Object.keys(obj);
     objKeys.forEach((k) => {
-      ret.push(`${k}:{${name}}.${k}`);
+      ret.push(`${k}:$${k}`);
     });
     return ret.join(', ');
   }
@@ -79,18 +78,17 @@ class QueryBuilder {
   * @name toSets
   * @summary Convert an object of properties to a group of set statements
   * @param {string} v - query varible
-  * @param {string} objName - query param object name
   * @param {object} obj - object which will be converted
   * @note creates string in this format: "SET e.eid = {event}.eid"
   *       query must pass param object named event in the example above
-  * @return {string} string of neo4j cypher compatible set statements
+  * @return {string} string of cypher compatible set statements
   */
-  toSets(v, objName, obj) {
+  toSets(v, obj) {
     let ret = [];
     let objKeys = Object.keys(obj);
     ret.push('\n');
     objKeys.forEach((k) => {
-      ret.push(`  SET ${v}.${k} = {${objName}}.${k}`)
+      ret.push(`  SET ${v}.${k} = "${obj[k]}"`)
     });
     return ret.join('\n');
   }

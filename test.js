@@ -1,10 +1,3 @@
-# redis-graph-query-builder
-RedisGraph Query Builder
-
-This is a work in progress - do not use this release.
-
-## Demonstration program
-```js
 /**
  * @name Test
  * @description Sample program showing QueryBuilder in action
@@ -71,4 +64,4 @@ This is a work in progress - do not use this release.
   `);
   console.log(qb.toString());
 })();
-```
+

@@ -1,6 +1,6 @@
 {
   "name": "redis-graph-query-builder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "Redis Graph Query Builder",
   "author": {
@@ -29,5 +29,5 @@
   "bugs": {
     "url": "https://github.com/cjus/redis-graph-query-builder/issues"
   },
-  "homepage": "https://github.com/redis-graph-query-builder#readme"
+  "homepage": "https://github.com/redis-graph-query-builder"
 }
