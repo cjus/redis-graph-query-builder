@@ -1,7 +1,19 @@
 # redis-graph-query-builder
 RedisGraph Query Builder
 
+A light-weight module to aid in building Redis Graph database queries using the Cypher graph language.
+
+This module has been tested with the official Redis Graph JavaScript module:
+
+https://github.com/RedisGraph/redisgraph.js
+
 This is a work in progress - do not use this release.
+
+## Installation
+
+```shell
+$ npm install redis-graph-query-builder --save
+```
 
 ## Demonstration program
 ```js
